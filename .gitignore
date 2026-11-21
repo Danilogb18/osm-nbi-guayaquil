@@ -1,0 +1,14 @@
+# Fuentes originales: demasiado grandes para GitHub (ver datos/fuentes/README.md)
+datos/fuentes/*
+!datos/fuentes/README.md
+
+# Intermedios pesados que se regeneran con los scripts 01 y 02
+datos/intermedios/gye_*.csv
+datos/intermedios/nbi_hogares.csv
+muestra_*.csv
+
+# Sistema y Python
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
