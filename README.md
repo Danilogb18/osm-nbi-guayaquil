@@ -3,7 +3,7 @@
 Código y datos del proyecto de Metodología de Investigación en Computación (ESPOL).
 El objetivo es construir una tipología de las zonas censales urbanas de Guayaquil a partir de indicadores del entorno construido calculados con OpenStreetMap (OSM), y describir cada tipo con la pobreza por Necesidades Básicas Insatisfechas (NBI) del Censo 2022.
 
-El resultado actual es el dataset analítico: **una fila por zona censal urbana (698 zonas, 697 en el análisis)**, con 10 variables de agrupamiento calculadas con OSM, 3 variables de control de completitud de OSM y la pobreza por NBI con sus cinco dimensiones.
+El resultado actual es el dataset analítico: **una fila por zona censal urbana (698 zonas, 693 en el análisis)**, con 10 variables de agrupamiento calculadas con OSM, 3 variables de control de completitud de OSM y la pobreza por NBI con sus cinco dimensiones.
 La regla central del diseño es que el NBI no interviene en la construcción de los tipos ni en la selección de variables; solo se usa para describirlos y validarlos.
 
 ## Estructura
@@ -42,7 +42,7 @@ Los siguientes pasos (preparación de la matriz, agrupamiento, perfil NBI por ti
 | `datos/intermedios/` | `sectores_guayaquil.gpkg` | Polígonos de los sectores del cantón (7 MB); evita descargar la capa nacional de 688 MB |
 | | `nbi_sectores.csv` | NBI y sus 5 dimensiones por sector (6.648 sectores); evita procesar los microdatos del censo |
 | | `tabla_zonas.csv` | Todos los indicadores candidatos por zona (698 × 76) |
-| `datos/final/` | `dataset_zonas.csv` y `.xlsx` | Dataset analítico (698 × 28) |
+| `datos/final/` | `dataset_zonas.csv` y `.xlsx` | Dataset analítico (698 × 29) |
 | | `diccionario_variables.csv` | Qué es cada columna, unidad y uso |
 | | `descriptivos.csv` | Estadísticos por variable, incluida la asimetría |
 | `resultados/diagnosticos/` | `correlaciones_zonas.csv` | Spearman entre variables candidatas; justifica los descartes por redundancia |
@@ -87,7 +87,7 @@ El script 01 busca los CSV nacionales por nombre (`CPV_2022_Vivienda_Sector.csv`
 ## Decisiones principales
 
 - **Área de estudio:** parroquia urbana de Guayaquil (código 090150), solo sectores amanzanados: 6.371 sectores, 310 km².
-- **Unidad de análisis:** zona censal (sectores que comparten los 9 primeros dígitos del código): 698 zonas; se excluye 1 con menos de 50 hogares.
+- **Unidad de análisis:** zona censal (sectores que comparten los 9 primeros dígitos del código): 698 zonas; se excluyen 1 con menos de 50 hogares y 4 que no son contiguas al área urbana (poblados aislados cerca de la vía a la Costa, a entre 11 y 28 km de la ciudad). Quedan 693 en el análisis; el motivo de cada exclusión está en la columna `motivo_exclusion`.
 - **Variables de agrupamiento (10):** densidad vial, proporción de vías sin pavimentar, distancia a vía principal, comercio cotidiano, comercio formal, servicios sociales y recreación (por 1.000 habitantes), y distancias a salud, escuela y mercado (ponderadas por población).
 - **Selección:** justificación teórica, cobertura, redundancia (|ρ de Spearman| ≥ 0,8) y nunca según la correlación con el NBI.
 - **Completitud de OSM:** tres variables de control (POIs totales, edificios mapeados, cobertura de la etiqueta `surface`) que no entran al agrupamiento.
