@@ -11,6 +11,7 @@ Entrada:
 
 Salidas:
     dataset_zonas.csv          el dataset: 698 filas, columnas ordenadas por bloque
+                               (693 en análisis; ver en_analisis y motivo_exclusion)
     diccionario_variables.csv  qué es cada columna, unidad, fuente y para qué se usa
     descriptivos.csv           estadísticos de cada variable (solo zonas en análisis)
     dataset_zonas.xlsx         lo mismo en un Excel de tres hojas (si hay openpyxl)
@@ -27,6 +28,14 @@ import pandas as pd
 
 MIN_HOGARES = 50   # zonas con menos hogares quedan marcadas fuera del análisis
 
+# Zonas amanzanadas de la parroquia urbana 090150 que NO son contiguas al área
+# urbana continua de Guayaquil: son poblados aislados cerca de la vía a la Costa,
+# a entre 11 y 28 km de la zona más cercana de la ciudad (distancia entre
+# polígonos medida con sectores_guayaquil.gpkg, EPSG:32717; revisado en mapa el
+# 25 nov. 2026). Sus distancias a servicios miden aislamiento geográfico, no
+# condiciones de un vecindario urbano. Se excluyen por su ubicación, sin mirar el NBI.
+ZONAS_NO_CONTIGUAS = ["090150931", "090150944", "090150946", "090150948"]
+
 # (columna, bloque, descripción, unidad, fuente, decimales)
 DICCIONARIO = [
     # --- Identificación y denominadores ---
@@ -34,8 +43,11 @@ DICCIONARIO = [
      "Código de zona censal: primeros 9 dígitos del código de sector (provincia 2, cantón 2, parroquia 2, zona 3)",
      "código", "INEC, capa de sectores anonimizados", None),
     ("en_analisis", "Identificación",
-     f"Verdadero si la zona entra al análisis (al menos {MIN_HOGARES} hogares)",
+     f"Verdadero si la zona entra al análisis (al menos {MIN_HOGARES} hogares y contigua al área urbana)",
      "sí/no", "Derivado", None),
+    ("motivo_exclusion", "Identificación",
+     "Por qué la zona queda fuera del análisis (vacío si entra)",
+     "texto", "Derivado", None),
     ("n_sectores", "Identificación", "Sectores censales amanzanados que forman la zona",
      "sectores", "INEC, capa de sectores", 0),
     ("area_km2", "Identificación", "Área de la zona", "km²", "INEC, capa de sectores", 4),
@@ -111,7 +123,15 @@ DICCIONARIO = [
 
 def main(ruta):
     t = pd.read_csv(ruta, dtype={"zona": str})
-    t["en_analisis"] = t["n_hogares"].fillna(0) >= MIN_HOGARES
+    pocos_hogares = t["n_hogares"].fillna(0) < MIN_HOGARES
+    no_contigua = t["zona"].isin(ZONAS_NO_CONTIGUAS)
+    t["motivo_exclusion"] = ""
+    t.loc[pocos_hogares, "motivo_exclusion"] = f"menos de {MIN_HOGARES} hogares"
+    t.loc[no_contigua, "motivo_exclusion"] = "no contigua al área urbana"
+    t["en_analisis"] = t["motivo_exclusion"] == ""
+    no_encontradas = set(ZONAS_NO_CONTIGUAS) - set(t["zona"])
+    if no_encontradas:
+        sys.exit(f"Zonas no contiguas que no aparecen en {ruta}: {sorted(no_encontradas)}")
 
     cols = [c for c, *_ in DICCIONARIO]
     faltan = [c for c in cols if c not in t.columns]
@@ -161,7 +181,7 @@ def main(ruta):
         excel = "no se generó el .xlsx (falta openpyxl: pip3 install openpyxl)"
 
     n_ok = int(ds["en_analisis"].sum())
-    fuera = ds.loc[~ds["en_analisis"], ["zona", "n_hogares", "pob_t", "area_km2"]]
+    fuera = ds.loc[~ds["en_analisis"], ["zona", "motivo_exclusion", "n_hogares", "pob_t", "area_km2"]]
     print(f"dataset_zonas.csv: {len(ds):,} filas x {ds.shape[1]} columnas "
           f"({n_ok:,} en análisis)")
     if len(fuera):

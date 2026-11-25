@@ -1,29 +1,30 @@
 n,columna,bloque,descripcion,unidad,fuente
 1,zona,Identificación,"Código de zona censal: primeros 9 dígitos del código de sector (provincia 2, cantón 2, parroquia 2, zona 3)",código,"INEC, capa de sectores anonimizados"
-2,en_analisis,Identificación,Verdadero si la zona entra al análisis (al menos 50 hogares),sí/no,Derivado
-3,n_sectores,Identificación,Sectores censales amanzanados que forman la zona,sectores,"INEC, capa de sectores"
-4,area_km2,Identificación,Área de la zona,km²,"INEC, capa de sectores"
-5,pob_t,Identificación,Población censal de la zona (suma de pob_t de sus sectores),personas,"INEC, capa de sectores (Censo 2022)"
-6,dens_vial_km_km2,Agrupamiento: red vial,"Longitud de vías vehiculares (principales, secundarias, residenciales y caminos) por km² de zona",km/km²,OSM (highway)
-7,prop_sin_pavimento,Agrupamiento: red vial,"Proporción de los km vehiculares sin pavimentar (surface = unpaved, dirt, gravel...; o highway=track sin surface)",proporción 0-1,"OSM (highway, surface)"
-8,dist_via_principal_m,Agrupamiento: red vial,"Distancia a la vía principal o secundaria más cercana, desde cada sector, promediada por población",m,OSM (highway)
-9,comercio_cotidiano_x1000hab,Agrupamiento: servicios y comercio,"Tiendas de barrio, comida y mercados por 1.000 habitantes",por 1.000 hab.,"OSM (shop, amenity) + población INEC"
-10,comercio_formal_x1000hab,Agrupamiento: servicios y comercio,"Supermercados, bancos y cajeros, y oficinas por 1.000 habitantes",por 1.000 hab.,"OSM (shop, amenity, office) + población INEC"
-11,servicios_sociales_x1000hab,Agrupamiento: servicios y comercio,"Salud, educación y servicios públicos por 1.000 habitantes",por 1.000 hab.,"OSM (amenity, healthcare) + población INEC"
-12,recreacion_x1000hab,Agrupamiento: servicios y comercio,"Parques, canchas, juegos infantiles y centros deportivos por 1.000 habitantes",por 1.000 hab.,OSM (leisure) + población INEC
-13,dist_salud_m,Agrupamiento: accesibilidad,"Distancia al hospital, clínica o consultorio más cercano, desde cada sector, promediada por población",m,"OSM (amenity, healthcare)"
-14,dist_escuela_m,Agrupamiento: accesibilidad,"Distancia a la escuela o centro de educación inicial más cercano, promediada por población",m,OSM (amenity)
-15,dist_mercado_m,Agrupamiento: accesibilidad,"Distancia al mercado o supermercado más cercano, promediada por población",m,"OSM (amenity, shop)"
-16,poi_total,Control de completitud,Total de puntos de interés clasificados en la zona (todas las categorías),conteo,OSM
-17,n_edificios_osm,Control de completitud,Edificios dibujados en OSM dentro de la zona,conteo,OSM (building)
-18,cobertura_superficie,Control de completitud,Proporción de los km vehiculares que tienen la etiqueta surface (cuánto creerle a prop_sin_pavimento),proporción 0-1,OSM (surface)
-19,n_hogares,Salida: NBI,Hogares de la zona con datos de NBI,hogares,"Censo 2022, microdatos"
-20,n_personas,Salida: NBI,Personas en esos hogares,personas,"Censo 2022, microdatos"
-21,p_nbi_personas,Salida: NBI,"Proporción de personas pobres por NBI (variable principal; comparable con el 28,7 % cantonal)",proporción 0-1,"Censo 2022, reconstrucción validada"
-22,p_nbi,Salida: NBI,Proporción de hogares pobres por NBI (al menos una carencia),proporción 0-1,"Censo 2022, reconstrucción validada"
-23,prom_carencias,Salida: NBI,Número medio de carencias por hogar (0 a 5),carencias,"Censo 2022, reconstrucción validada"
-24,p_vivienda,Salida: NBI,Proporción de hogares con vivienda de materiales deficitarios,proporción 0-1,"Censo 2022, reconstrucción validada"
-25,p_servicios,Salida: NBI,Proporción de hogares sin servicios básicos adecuados,proporción 0-1,"Censo 2022, reconstrucción validada"
-26,p_hacin,Salida: NBI,Proporción de hogares en hacinamiento crítico,proporción 0-1,"Censo 2022, reconstrucción validada"
-27,p_ninos,Salida: NBI,Proporción de hogares con niños de 6 a 12 años que no asisten a clases,proporción 0-1,"Censo 2022, reconstrucción validada"
-28,p_depend,Salida: NBI,Proporción de hogares con alta dependencia económica,proporción 0-1,"Censo 2022, reconstrucción validada"
+2,en_analisis,Identificación,Verdadero si la zona entra al análisis (al menos 50 hogares y contigua al área urbana),sí/no,Derivado
+3,motivo_exclusion,Identificación,Por qué la zona queda fuera del análisis (vacío si entra),texto,Derivado
+4,n_sectores,Identificación,Sectores censales amanzanados que forman la zona,sectores,"INEC, capa de sectores"
+5,area_km2,Identificación,Área de la zona,km²,"INEC, capa de sectores"
+6,pob_t,Identificación,Población censal de la zona (suma de pob_t de sus sectores),personas,"INEC, capa de sectores (Censo 2022)"
+7,dens_vial_km_km2,Agrupamiento: red vial,"Longitud de vías vehiculares (principales, secundarias, residenciales y caminos) por km² de zona",km/km²,OSM (highway)
+8,prop_sin_pavimento,Agrupamiento: red vial,"Proporción de los km vehiculares sin pavimentar (surface = unpaved, dirt, gravel...; o highway=track sin surface)",proporción 0-1,"OSM (highway, surface)"
+9,dist_via_principal_m,Agrupamiento: red vial,"Distancia a la vía principal o secundaria más cercana, desde cada sector, promediada por población",m,OSM (highway)
+10,comercio_cotidiano_x1000hab,Agrupamiento: servicios y comercio,"Tiendas de barrio, comida y mercados por 1.000 habitantes",por 1.000 hab.,"OSM (shop, amenity) + población INEC"
+11,comercio_formal_x1000hab,Agrupamiento: servicios y comercio,"Supermercados, bancos y cajeros, y oficinas por 1.000 habitantes",por 1.000 hab.,"OSM (shop, amenity, office) + población INEC"
+12,servicios_sociales_x1000hab,Agrupamiento: servicios y comercio,"Salud, educación y servicios públicos por 1.000 habitantes",por 1.000 hab.,"OSM (amenity, healthcare) + población INEC"
+13,recreacion_x1000hab,Agrupamiento: servicios y comercio,"Parques, canchas, juegos infantiles y centros deportivos por 1.000 habitantes",por 1.000 hab.,OSM (leisure) + población INEC
+14,dist_salud_m,Agrupamiento: accesibilidad,"Distancia al hospital, clínica o consultorio más cercano, desde cada sector, promediada por población",m,"OSM (amenity, healthcare)"
+15,dist_escuela_m,Agrupamiento: accesibilidad,"Distancia a la escuela o centro de educación inicial más cercano, promediada por población",m,OSM (amenity)
+16,dist_mercado_m,Agrupamiento: accesibilidad,"Distancia al mercado o supermercado más cercano, promediada por población",m,"OSM (amenity, shop)"
+17,poi_total,Control de completitud,Total de puntos de interés clasificados en la zona (todas las categorías),conteo,OSM
+18,n_edificios_osm,Control de completitud,Edificios dibujados en OSM dentro de la zona,conteo,OSM (building)
+19,cobertura_superficie,Control de completitud,Proporción de los km vehiculares que tienen la etiqueta surface (cuánto creerle a prop_sin_pavimento),proporción 0-1,OSM (surface)
+20,n_hogares,Salida: NBI,Hogares de la zona con datos de NBI,hogares,"Censo 2022, microdatos"
+21,n_personas,Salida: NBI,Personas en esos hogares,personas,"Censo 2022, microdatos"
+22,p_nbi_personas,Salida: NBI,"Proporción de personas pobres por NBI (variable principal; comparable con el 28,7 % cantonal)",proporción 0-1,"Censo 2022, reconstrucción validada"
+23,p_nbi,Salida: NBI,Proporción de hogares pobres por NBI (al menos una carencia),proporción 0-1,"Censo 2022, reconstrucción validada"
+24,prom_carencias,Salida: NBI,Número medio de carencias por hogar (0 a 5),carencias,"Censo 2022, reconstrucción validada"
+25,p_vivienda,Salida: NBI,Proporción de hogares con vivienda de materiales deficitarios,proporción 0-1,"Censo 2022, reconstrucción validada"
+26,p_servicios,Salida: NBI,Proporción de hogares sin servicios básicos adecuados,proporción 0-1,"Censo 2022, reconstrucción validada"
+27,p_hacin,Salida: NBI,Proporción de hogares en hacinamiento crítico,proporción 0-1,"Censo 2022, reconstrucción validada"
+28,p_ninos,Salida: NBI,Proporción de hogares con niños de 6 a 12 años que no asisten a clases,proporción 0-1,"Censo 2022, reconstrucción validada"
+29,p_depend,Salida: NBI,Proporción de hogares con alta dependencia económica,proporción 0-1,"Censo 2022, reconstrucción validada"

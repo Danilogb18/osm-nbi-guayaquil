@@ -1,27 +1,27 @@
 variable,bloque,n,media,desv_est,min,p25,mediana,p75,max,pct_ceros,asimetria
-n_sectores,Identificación,697,9.139,1.858,2.0,8.0,9.0,10.0,13.0,0.0,0.264
-area_km2,Identificación,697,0.445,0.923,0.083,0.162,0.214,0.343,9.799,0.0,6.155
-pob_t,Identificación,697,3809.613,1119.218,696.0,3067.0,3711.0,4491.0,15262.0,0.0,1.707
-dens_vial_km_km2,Agrupamiento: red vial,697,24.72,8.938,2.24,18.81,25.39,31.26,50.35,0.0,-0.33
-prop_sin_pavimento,Agrupamiento: red vial,697,0.061,0.157,0.0,0.0,0.0,0.024,0.898,67.575,3.253
-dist_via_principal_m,Agrupamiento: red vial,697,217.121,314.083,10.0,91.0,143.0,269.0,7097.0,0.0,15.488
-comercio_cotidiano_x1000hab,Agrupamiento: servicios y comercio,697,1.45,3.07,0.0,0.0,0.632,1.539,34.137,26.112,5.762
-comercio_formal_x1000hab,Agrupamiento: servicios y comercio,697,0.717,2.206,0.0,0.0,0.18,0.506,31.459,48.637,7.295
-servicios_sociales_x1000hab,Agrupamiento: servicios y comercio,697,1.109,1.956,0.0,0.254,0.621,1.283,25.71,17.217,6.528
-recreacion_x1000hab,Agrupamiento: servicios y comercio,697,1.472,2.672,0.0,0.0,0.422,1.852,29.255,32.999,4.624
-dist_salud_m,Agrupamiento: accesibilidad,697,756.433,1734.24,89.0,268.0,415.0,712.0,31335.0,0.0,12.414
-dist_escuela_m,Agrupamiento: accesibilidad,697,340.476,537.695,67.0,169.0,229.0,341.0,9097.0,0.0,10.254
-dist_mercado_m,Agrupamiento: accesibilidad,697,555.23,1385.998,80.0,262.0,363.0,553.0,27802.0,0.0,15.276
-poi_total,Control de completitud,697,24.26,32.612,0.0,6.0,14.0,28.0,254.0,3.013,3.362
-n_edificios_osm,Control de completitud,697,60.641,196.203,0.0,2.0,9.0,20.0,1495.0,11.621,4.986
-cobertura_superficie,Control de completitud,697,0.771,0.261,0.0,0.643,0.881,0.991,1.0,0.143,-1.128
-n_hogares,Salida: NBI,697,1124.399,279.087,205.0,914.0,1099.0,1316.0,2146.0,0.0,0.306
-n_personas,Salida: NBI,697,3789.286,1033.005,696.0,3060.0,3697.0,4486.0,7157.0,0.0,0.256
-p_nbi_personas,Salida: NBI,697,0.266,0.208,0.017,0.128,0.234,0.315,0.999,0.0,2.037
-p_nbi,Salida: NBI,697,0.219,0.21,0.017,0.093,0.172,0.246,0.998,0.0,2.479
-prom_carencias,Salida: NBI,697,0.289,0.36,0.02,0.103,0.193,0.287,2.015,0.0,2.998
-p_vivienda,Salida: NBI,697,0.042,0.093,0.0,0.003,0.009,0.029,0.683,6.313,3.919
-p_servicios,Salida: NBI,697,0.091,0.216,0.0,0.012,0.021,0.047,0.998,0.143,3.524
-p_hacin,Salida: NBI,697,0.112,0.071,0.0,0.048,0.117,0.158,0.317,0.287,0.255
-p_ninos,Salida: NBI,697,0.025,0.013,0.0,0.015,0.022,0.032,0.071,0.143,0.912
-p_depend,Salida: NBI,697,0.019,0.015,0.0,0.006,0.017,0.029,0.12,3.443,1.108
+n_sectores,Identificación,693,9.173,1.808,6.0,8.0,9.0,10.0,13.0,0.0,0.444
+area_km2,Identificación,693,0.445,0.926,0.083,0.162,0.213,0.342,9.799,0.0,6.138
+pob_t,Identificación,693,3824.369,1104.809,1367.0,3077.0,3731.0,4492.0,15262.0,0.0,1.824
+dens_vial_km_km2,Agrupamiento: red vial,693,24.807,8.887,2.24,19.22,25.39,31.29,50.35,0.0,-0.336
+prop_sin_pavimento,Agrupamiento: red vial,693,0.06,0.157,0.0,0.0,0.0,0.021,0.898,67.965,3.291
+dist_via_principal_m,Agrupamiento: red vial,693,207.519,175.211,10.0,91.0,143.0,269.0,1310.0,0.0,2.156
+comercio_cotidiano_x1000hab,Agrupamiento: servicios y comercio,693,1.447,3.077,0.0,0.0,0.631,1.536,34.137,26.118,5.76
+comercio_formal_x1000hab,Agrupamiento: servicios y comercio,693,0.721,2.212,0.0,0.0,0.185,0.507,31.459,48.341,7.276
+servicios_sociales_x1000hab,Agrupamiento: servicios y comercio,693,1.113,1.961,0.0,0.259,0.624,1.283,25.71,17.027,6.515
+recreacion_x1000hab,Agrupamiento: servicios y comercio,693,1.48,2.678,0.0,0.0,0.432,1.861,29.255,32.612,4.614
+dist_salud_m,Agrupamiento: accesibilidad,693,642.154,658.914,89.0,268.0,410.0,702.0,4426.0,0.0,2.718
+dist_escuela_m,Agrupamiento: accesibilidad,693,318.482,338.029,67.0,169.0,229.0,340.0,3346.0,0.0,5.145
+dist_mercado_m,Agrupamiento: accesibilidad,693,463.519,344.976,80.0,262.0,361.0,549.0,3387.0,0.0,3.383
+poi_total,Control de completitud,693,24.378,32.668,0.0,6.0,14.0,28.0,254.0,2.886,3.355
+n_edificios_osm,Control de completitud,693,60.99,196.715,0.0,2.0,9.0,20.0,1495.0,11.255,4.97
+cobertura_superficie,Control de completitud,693,0.773,0.259,0.0,0.646,0.883,0.991,1.0,0.144,-1.139
+n_hogares,Salida: NBI,693,1128.798,273.62,521.0,918.0,1100.0,1317.0,2146.0,0.0,0.414
+n_personas,Salida: NBI,693,3803.929,1017.135,1359.0,3068.0,3728.0,4491.0,7157.0,0.0,0.326
+p_nbi_personas,Salida: NBI,693,0.264,0.208,0.017,0.128,0.233,0.313,0.999,0.0,2.064
+p_nbi,Salida: NBI,693,0.218,0.21,0.017,0.093,0.172,0.245,0.998,0.0,2.511
+prom_carencias,Salida: NBI,693,0.287,0.36,0.02,0.102,0.191,0.284,2.015,0.0,3.033
+p_vivienda,Salida: NBI,693,0.042,0.093,0.0,0.003,0.009,0.028,0.683,6.349,3.933
+p_servicios,Salida: NBI,693,0.09,0.216,0.0,0.012,0.021,0.046,0.998,0.144,3.562
+p_hacin,Salida: NBI,693,0.112,0.071,0.0,0.048,0.116,0.157,0.317,0.289,0.266
+p_ninos,Salida: NBI,693,0.024,0.013,0.0,0.015,0.022,0.032,0.071,0.144,0.913
+p_depend,Salida: NBI,693,0.019,0.015,0.0,0.006,0.016,0.029,0.082,3.463,0.796
